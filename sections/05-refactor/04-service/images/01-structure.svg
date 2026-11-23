@@ -11,7 +11,7 @@
 <text x="716" y="128" text-anchor="start" font-size="22.666666666666664" fill="#475569" font-weight="600">DatabaseModule</text>
 <path d="M718.0 170.56 A98.0 18.56 0 0 0 914.0 170.56 L914.0 249.44 A98.0 18.56 0 0 1 718.0 249.44 Z" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3.5"/>
 <ellipse cx="816.0" cy="170.56" rx="98.0" ry="18.56" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2.5"/>
-<text x="816" y="217.933" text-anchor="middle" font-size="22.666666666666664" fill="#475569" font-weight="600">DatabaseSync</text>
+<text x="816" y="227.213" text-anchor="middle" font-size="22.666666666666664" fill="#475569" font-weight="600">DatabaseSync</text>
 <polygon points="470,155 610,155 665,210 610,265 470,265 415,210" fill="#ede9fe" stroke="#8b5cf6" stroke-width="3.5"/>
 <text x="540" y="206" text-anchor="middle" font-size="22.666666666666664" fill="#6d28d9" font-weight="600"><tspan x="540" dy="0">NotesService</tspan><tspan x="540" dy="32.8667">SQL と処理</tspan></text>
 <rect x="405" y="296" width="270" height="92" rx="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3.5"/>
