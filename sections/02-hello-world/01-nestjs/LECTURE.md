@@ -30,47 +30,6 @@ cd api
 code .
 ```
 
-## テストの仕組みを消す
-
-このハンズオンではテストを書かないので、`nest new` が入れたテストの仕組み（Vitest の設定とパッケージ）を消します。テストは「NestJS のテスト」のハンズオンで扱います。
-
-:::::platform
-::::macos-linux
-```bash
-rm vitest.config.ts vitest.config.e2e.ts
-```
-::::
-::::windows
-```powershell
-Remove-Item vitest.config.ts, vitest.config.e2e.ts
-```
-::::
-:::::
-
-```bash
-npm uninstall vitest @vitest/coverage-v8 vite supertest @types/supertest @nestjs/testing
-npm pkg delete scripts.test scripts.test:watch scripts.test:cov scripts.test:debug scripts.test:e2e
-```
-
-`package.json` の `format` と `lint` から、テストのフォルダ（`test/`）を外します。
-
-```diff lang="json"
--    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-+    "format": "prettier --write \"src/**/*.ts\"",
-```
-
-```diff lang="json"
--    "lint": "oxlint --type-aware src/ test/"
-+    "lint": "oxlint --type-aware src/"
-```
-
-`tsconfig.json` の `types` から、Vitest の型を外します。
-
-```diff lang="json"
--    "types": ["vitest/globals", "node"]
-+    "types": ["node"]
-```
-
 主なファイルは次のとおりです。
 
 | ファイル | 役割 |
@@ -155,8 +114,6 @@ TypeScript をコンパイルして `dist/` に書き出します。このハン
 
 - [NestJS: First steps](https://docs.nestjs.com/first-steps) … `nest new` で作るプロジェクトのファイルと `main.ts`、`npm run start:dev`
 - [NestJS: CLI command reference](https://docs.nestjs.com/cli/usages) … `nest new` の `--skip-tests`・`--type`・`--no-observe`・`--skip-skills`
-- [npm Docs: npm uninstall](https://docs.npmjs.com/cli/v11/commands/npm-uninstall) … ライブラリを消す
-- [npm Docs: npm pkg](https://docs.npmjs.com/cli/v11/commands/npm-pkg) … `npm pkg delete` で `scripts` を消す
 - [NestJS: Controllers](https://docs.nestjs.com/controllers) … `@Controller()`・`@Get()` とルートの決まり方
 - [NestJS: Providers](https://docs.nestjs.com/providers) … サービスとコンストラクターでの依存性の注入
 
