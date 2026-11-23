@@ -43,7 +43,7 @@ sections/<sec>/<lec>/
 - 言語は **TypeScript**（handson-builder 既定の「JS のみ」から外している。NestJS と OpenAPI からの型生成を扱うため）
 - Podman・compose・コンテナ・Next.js は使わない。Node.js と VS Code だけで進める
 - パッケージマネージャはレクチャー側が **npm**（`api/package-lock.json`）、サイトが pnpm
-- `api/` は、`nest new --package-manager npm --skip-tests --type esm --no-observe --skip-skills` が作ったものを何も消さずに使う
+- `api/` は、`nest new api` の質問に npm・observe は n・skills は none・ESM と答えて作ったもの（`nest new api --package-manager npm --no-observe --skip-skills --type esm` と同じ。`--skip-tests` は付けないので `src/app.controller.spec.ts`・`test/app.e2e-spec.ts` もある）を何も消さずに使う。02-01 は質問に答える形で書き、1 行で作るコマンドを添える
   （`AGENTS.md`・`README.md`・oxlint・Prettier・Vitest の設定とパッケージ・`scripts` もそのまま）。教材で足すのは `src/` の中身と、03 章から `openapi.yaml`、04 章から型の生成と zod
 - ポート: `nest new` の既定の 3000
 - 秘密の実値は絶対にコミットしない
