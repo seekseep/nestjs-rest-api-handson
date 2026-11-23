@@ -13,15 +13,59 @@ NestJS は、Node.js で API を作るためのフレームワークです。URL
 
 ## NestJS のプロジェクトを作る
 
-作業用のフォルダを作り、その中で Nest CLI を使ってプロジェクトを作ります。
+作業用のフォルダを作り、その中で Nest CLI の 12 系を使ってプロジェクトを作ります。
 
 ```bash
 mkdir handson
 cd handson
-npx @nestjs/cli@12 new api --package-manager npm --skip-tests --type esm --no-observe --skip-skills
+npx @nestjs/cli@12 new api
 ```
 
-Nest CLI の 12 系で `api/` を作り、ライブラリのインストールまで行います。`--skip-tests` でテストのファイルを作らず、`--type esm` でモジュールの方式を ESM にし、`--no-observe` で監視サービス（NestJS Observe）の設定を、`--skip-skills` でコーディングエージェント向けのスキルのファイルを飛ばします。
+途中で 4 つの質問が出ます。矢印キーで選び、Enter で決めます。
+
+| 質問 | 答え |
+|---|---|
+| `Which package manager would you ❤️  to use?` | `npm`（このハンズオンは npm で進める） |
+| `Would you like to set up @nestjs/observe (...)?` | `n`（監視サービスは使わない） |
+| `Which coding agents should get the official NestJS agent skills?` | `none`（いちばん下） |
+| `Which module system would you like to use?` | `ESM (ES Modules)`（このハンズオンは ESM のコードで書く） |
+
+答え終わると、`api/` にファイルを作り、ライブラリを入れます。
+
+```text
+✔ Which package manager would you ❤️  to use? npm
+✔ Would you like to set up @nestjs/observe (distributed tracing, auto-correlated
+ logs, metrics and alarms - free for 300k events/month, https://observe.nestjs.c
+om)? No
+✔ Which coding agents should get the official NestJS agent skills? none
+✔ Which module system would you like to use? ESM (ES Modules)         [ with vit
+est ]
+CREATE api/.gitattributes (19 bytes)
+CREATE api/.oxlintrc.json (206 bytes)
+（省略）
+CREATE api/src/main.ts (237 bytes)
+CREATE api/src/app.controller.spec.ts (623 bytes)
+CREATE api/test/app.e2e-spec.ts (731 bytes)
+
+▹▹▹▹▹ Installation in progress... ☕
+
+🚀  Successfully created project api
+👉  Get started with the following commands:
+
+$ cd api
+$ npm run start
+```
+
+質問に答える代わりに、オプションで同じ答えを渡すと、1 行で作れます。
+
+```bash
+npx @nestjs/cli@12 new api --package-manager npm --no-observe --skip-skills --type esm
+```
+
+- `--package-manager npm` … 1 つ目の質問の答え
+- `--no-observe` … 2 つ目の質問の答え
+- `--skip-skills` … 3 つ目の質問の答え
+- `--type esm` … 4 つ目の質問の答え
 
 以降のコマンドは、`api/` の中で実行します。VS Code で `api/` を開いておきます。
 
@@ -40,6 +84,7 @@ code .
 | `src/app.service.ts` | サービス。実際の処理（ここでは文字列を返すだけ） |
 | `package.json`・`package-lock.json` | 使うライブラリとコマンド（`scripts`） |
 | `tsconfig.json`・`tsconfig.build.json`・`nest-cli.json` | TypeScript と Nest CLI の設定 |
+| `src/app.controller.spec.ts`・`test/app.e2e-spec.ts` | テストのひな形（このハンズオンでは使わない） |
 
 ## 動かす
 
@@ -113,7 +158,7 @@ TypeScript をコンパイルして `dist/` に書き出します。このハン
 この節は、次の公式ドキュメントをもとに書いています。
 
 - [NestJS: First steps](https://docs.nestjs.com/first-steps) … `nest new` で作るプロジェクトのファイルと `main.ts`、`npm run start:dev`
-- [NestJS: CLI command reference](https://docs.nestjs.com/cli/usages) … `nest new` の `--skip-tests`・`--type`・`--no-observe`・`--skip-skills`
+- [NestJS: CLI command reference](https://docs.nestjs.com/cli/usages) … `nest new` の質問と、同じ答えを渡す `--package-manager`・`--no-observe`・`--skip-skills`・`--type`
 - [NestJS: Controllers](https://docs.nestjs.com/controllers) … `@Controller()`・`@Get()` とルートの決まり方
 - [NestJS: Providers](https://docs.nestjs.com/providers) … サービスとコンストラクターでの依存性の注入
 
