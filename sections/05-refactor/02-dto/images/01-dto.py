@@ -7,8 +7,10 @@ DTO は、API の外（画面・curl・Try it）から届いた本文を、入�
 
 import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, os.path.expanduser("~/.claude/skills/genfig"))
+sys.path.insert(0, str(next(p / ".claude/skills/genfig" for p in Path(__file__).resolve().parents
+                            if (p / ".claude/skills/genfig").is_dir())))
 from genfig import Canvas  # noqa: E402
 from genfig.tokens import PALETTE  # noqa: E402
 
