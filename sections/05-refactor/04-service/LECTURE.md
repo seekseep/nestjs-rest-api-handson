@@ -12,7 +12,7 @@ SQL と処理を **サービス** に移し、コントローラーは「受け�
 ![SQL と処理が NotesService に分かれる。DatabaseSync は NotesService に、NotesService は NotesController に注入される](./images/01-structure.svg)
 
 ```bash
-npx nest g service notes
+npx nest g service notes --no-spec
 ```
 
 ```text
